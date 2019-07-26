@@ -25,7 +25,7 @@ void CodeEmitter::emitDword(unsigned long dword)
 	*/
 void CodeEmitter::modRM(unsigned char mod, X86RegisterType rem, X86RegisterType rm)
 {
-	//TODO better understand how this works
+	//TODO understand better how this works
 	emitByte(((mod << 6) | ((unsigned char)rem << 3) | (unsigned char)rm));
 }
 
@@ -39,7 +39,6 @@ CodeEmitter::CodeEmitter(unsigned long bufferSize)
 	bufferPointer(0),
 	bufferSize(bufferSize)
 {
-	//buffer = new unsigned char[bufferSize];
 	buffer = (unsigned char *)VirtualAlloc(0, bufferSize, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 }
 
